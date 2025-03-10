@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Recharge</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .btn { background: blue; color: white; padding: 10px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>پاکستانی سمز کے لیے موبائل ریچارج</h1>
+    <button class="btn" onclick="recharge()">ابھی ریچارج کریں</button>
+
+    <script>
+        function recharge() {
+            alert("ریچارج سسٹم جلد آ رہا ہے!");
+        }
+    </script>
+</body>
+</html>
+<form id="rechargeForm">
+    <label>فون نمبر درج کریں:</label>
+    <input type="text" id="phoneNumber" placeholder="03XXXXXXXXX">
+    
+    <label>رقم درج کریں:</label>
+    <input type="number" id="amount" placeholder="100">
+    
+    <button type="button" onclick="recharge()">ریچارج کریں</button>
+</form>
+
+<script>
+function recharge() {
+    let phone = document.getElementById("phoneNumber").value;
+    let amount = document.getElementById("amount").value;
+    alert(phone + " پر " + amount + " روپے کا ریچارج ہو رہا ہے!");
+}
+</script>
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Recharge</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; direction: rtl; }
+        .btn { background: blue; color: white; padding: 10px; border: none; cursor: pointer; }
+        .lang-btn { margin: 10px; padding: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <!-- Language Switcher Buttons -->
+    <button class="lang-btn" onclick="changeLanguage('ur')">اردو</button>
+    <button class="lang-btn" onclick="changeLanguage('en')">English</button>
+
+    <!-- Recharge Form -->
+    <h1 id="title">پاکستانی سمز کے لیے موبائل ریچارج</h1>
+
+    <form id="rechargeForm">
+        <label id="labelPhone">فون نمبر درج کریں:</label>
+        <input type="text" id="phoneNumber" placeholder="03XXXXXXXXX">
+        
+        <label id="labelAmount">رقم درج کریں:</label>
+        <input type="number" id="amount" placeholder="100">
+        
+        <button type="button" class="btn" onclick="recharge()">ریچارج کریں</button>
+    </form>
+
+    <script>
+        function changeLanguage(lang) {
+            if (lang === 'en') {
+                document.getElementById("title").innerText = "Mobile Recharge for Pakistani SIMs";
+                document.getElementById("labelPhone").innerText = "Enter Phone Number:";
+                document.getElementById("labelAmount").innerText = "Enter Amount:";
+                document.querySelector(".btn").innerText = "Recharge Now";
+            } else {
+                document.getElementById("title").innerText = "پاکستانی سمز کے لیے موبائل ریچارج";
+                document.getElementById("labelPhone").innerText = "فون نمبر درج کریں:";
+                document.getElementById("labelAmount").innerText = "رقم درج کریں:";
+                document.querySelector(".btn").innerText = "ریچارج کریں";
+            }
+        }
+
+        function recharge() {
+            let phone = document.getElementById("phoneNumber").value;
+            let amount = document.getElementById("amount").value;
+            alert(phone + " پر " + amount + " روپے کا ریچارج ہو رہا ہے!");
+        }
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyPaisa Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>📱 Mobile Packages & Payments</h2>
+
+        <label>Select Network:</label>
+        <select id="network">
+            <option value="jazz">Jazz</option>
+            <option value="telenor">Telenor</option>
+            <option value="zong">Zong</option>
+            <option value="ufone">Ufone</option>
+        </select>
+
+        <label>Select Package Type:</label>
+        <select id="package-type">
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+        </select>
+
+        <button onclick="getPackage()">🔍 Find Package</button>
+
+        <h3 id="package-result"></h3>
+
+        <h2>💳 Bill Payments & Recharge</h2>
+
+        <label>Amount:</label>
+        <input type="number" id="amount" placeholder="Enter Amount">
+
+        <button onclick="makePayment()">💰 Pay Now</button>
+
+        <h3 id="payment-result"></h3>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Packages Finder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; }
+        .container { margin-top: 50px; }
+        .card { margin-top: 20px; }
+        #ussd-result { font-size: 20px; font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center">📱 Mobile Packages Finder</h2>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <label>📶 Select Network:</label>
+            <select id="network" class="form-control">
+                <option value="jazz">Jazz</option>
+                <option value="telenor">Telenor</option>
+                <option value="zong">Zong</option>
+                <option value="ufone">Ufone</option>
+            </select>
+        </div>
+        
+        <div class="col-md-4">
+            <label>📋 Package Type:</label>
+            <select id="ussd-type" class="form-control">
+                <option value="balance">Balance Check</option>
+                <option value="internet">Internet Package</option>
+                <option value="call">Call Package</option>
+                <option value="sms">SMS Package</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label>📆 Duration:</label>
+            <select id="package-type" class="form-control">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+            </select>
+        </div>
+    </div>
+
+    <button class="btn btn-primary mt-3 w-100" onclick="getUSSDCode()">🔍 Find USSD Code</button>
+
+    <h4 class="text-center mt-3" id="ussd-result"></h4>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<h3>USSD Codes</h3>
+<select id="network">
+    <option value="jazz">Jazz</option>
+    <option value="telenor">Telenor</option>
+    <option value="zong">Zong</option>
+    <option value="ufone">Ufone</option>
+</select>
+
+<select id="ussd-type">
+    <option value="balance">Balance Check</option>
+    <option value="internet">Internet Package</option>
+    <option value="call">Call Package</option>
+    <option value="sms">SMS Package</option>
+</select>
+
+<select id="package-type">
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+    <option value="monthly">Monthly</option>
+</select>
+
+<button class="btn" onclick="getUSSDCode()">Show USSD Code</button>
+
+<p id="ussd-result"></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyPaisa Clone</title>
+    <link rel="stylesheet" href="style.css">  <!-- External CSS File -->
+</head>
+<body>
+
+    <!-- EasyPaisa Clone Content -->
+    <div class="container">
+        <h2>EasyPaisa Clone</h2>
+        <div class="balance">Balance: Rs <span id="balance">5000</span></div>
+
+        <h3>Send Money</h3>
+        <input type="number" id="phone" placeholder="Enter Phone Number">
+        <input type="number" id="amount" placeholder="Enter Amount">
+        <button class="btn" onclick="sendMoney()">Send Money</button>
+
+        <h3>Mobile Recharge</h3>
+        <input type="number" id="recharge-phone" placeholder="Enter Phone Number">
+        <input type="number" id="recharge-amount" placeholder="Enter Amount">
+        <button class="btn" onclick="mobileRecharge()">Recharge</button>
+
+        <h3>Bill Payments</h3>
+        <select id="bill-type">
+            <option value="Electricity">Electricity</option>
+            <option value="Gas">Gas</option>
+            <option value="Water">Water</option>
+            <option value="Internet">Internet</option>
+        </select>
+        <input type="number" id="bill-amount" placeholder="Enter Bill Amount">
+        <button class="btn" onclick="payBill()">Pay Bill</button>
+
+        <h3>QR Code Payment</h3>
+        <input type="text" id="qr-code" placeholder="Enter QR Code Data">
+        <button class="btn" onclick="payQR()">Pay via QR Code</button>
+
+        <h3>Transaction History</h3>
+        <div class="history" id="history">
+            <p>No transactions yet.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>  <!-- External JavaScript File -->
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyPaisa Clone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f4f4f4; text-align: center; padding: 20px; }
+        .container { width: 100%; max-width: 400px; background: white; padding: 20px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: #007bff; }
+        .balance { font-size: 24px; margin: 20px 0; font-weight: bold; }
+        .btn { display: block; width: 100%; padding: 10px; margin: 10px 0; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .btn:hover { background: #0056b3; }
+        input, select { width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .history { text-align: left; margin-top: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>EasyPaisa Clone</h2>
+        <div class="balance">Balance: Rs <span id="balance">5000</span></div>
+
+        <h3>Send Money</h3>
+        <input type="number" id="phone" placeholder="Enter Phone Number">
+        <input type="number" id="amount" placeholder="Enter Amount">
+        <button class="btn" onclick="sendMoney()">Send Money</button>
+
+        <h3>Mobile Recharge</h3>
+        <input type="number" id="recharge-phone" placeholder="Enter Phone Number">
+        <input type="number" id="recharge-amount" placeholder="Enter Amount">
+        <button class="btn" onclick="mobileRecharge()">Recharge</button>
+
+        <h3>Bill Payments</h3>
+        <select id="bill-type">
+            <option value="Electricity">Electricity</option>
+            <option value="Gas">Gas</option>
+            <option value="Water">Water</option>
+            <option value="Internet">Internet</option>
+        </select>
+        <input type="number" id="bill-amount" placeholder="Enter Bill Amount">
+        <button class="btn" onclick="payBill()">Pay Bill</button>
+
+        <h3>QR Code Payment</h3>
+        <input type="text" id="qr-code" placeholder="Enter QR Code Data">
+        <button class="btn" onclick="payQR()">Pay via QR Code</button>
+
+        <h3>Transaction History</h3>
+        <div class="history" id="history">
+            <p>No transactions yet.</p>
+        </div>
+    </div>
+
+    <script>
+        let balance = 5000;
+        let history = [];
+
+        function updateHistory(transaction) {
+            history.unshift(transaction);
+            document.getElementById("history").innerHTML = history.map(t => `<p>${t}</p>`).join('');
+        }
+
+        function sendMoney() {
+            let phone = document.getElementById("phone").value;
+            let amount = document.getElementById("amount").value;
+
+            if (phone.length !== 11 || amount <= 0) {
+                alert("Invalid Phone Number or Amount!");
+                return;
+            }
+
+            if (amount > balance) {
+                alert("Insufficient Balance!");
+                return;
+            }
+
+            balance -= amount;
+            document.getElementById("balance").innerText = balance;
+            let transaction = `Sent Rs ${amount} to ${phone}`;
+            updateHistory(transaction);
+            alert(transaction);
+        }
+
+        function mobileRecharge() {
+            let phone = document.getElementById("recharge-phone").value;
+            let amount = document.getElementById("recharge-amount").value;
+
+            if (phone.length !== 11 || amount <= 0) {
+                alert("Invalid Phone Number or Amount!");
+                return;
+            }
+
+            if (amount > balance) {
+                alert("Insufficient Balance!");
+                return;
+            }
+
+            balance -= amount;
+            document.getElementById("balance").innerText = balance;
+            let transaction = `Recharged Rs ${amount} for ${phone}`;
+            updateHistory(transaction);
+            alert(transaction);
+        }
+
+        function payBill() {
+            let billType = document.getElementById("bill-type").value;
+            let amount = document.getElementById("bill-amount").value;
+
+            if (amount <= 0) {
+                alert("Invalid Bill Amount!");
+                return;
+            }
+
+            if (amount > balance) {
+                alert("Insufficient Balance!");
+                return;
+            }
+
+            balance -= amount;
+            document.getElementById("balance").innerText = balance;
+            let transaction = `Paid Rs ${amount} for ${billType} Bill`;
+            updateHistory(transaction);
+            alert(transaction);
+        }
+
+        function payQR() {
+            let qrData = document.getElementById("qr-code").value;
+
+            if (!qrData) {
+                alert("Invalid QR Code!");
+                return;
+            }
+
+            let amount = Math.floor(Math.random() * 1000) + 1; // Example amount
+            if (amount > balance) {
+                alert("Insufficient Balance!");
+                return;
+            }
+
+            balance -= amount;
+            document.getElementById("balance").innerText = balance;
+            let transaction = `Paid Rs ${amount} via QR Code: ${qrData}`;
+            updateHistory(transaction);
+            alert(transaction);
+        }
+    </script>
+
+</body>
+</html>
